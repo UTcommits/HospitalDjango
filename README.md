@@ -1,5 +1,5 @@
-# urLess
-## Url Shortener using Django
+# Hospital
+## A Learners Project
 A small project made long ago while learning Django basics.
 
 ## Tech stack:
