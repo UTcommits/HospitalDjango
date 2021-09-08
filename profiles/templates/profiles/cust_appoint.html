@@ -1,0 +1,38 @@
+{% extends 'profiles/navbar.html' %}
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+	</style>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Date</th>
+					<th>Time</th>
+					<th>Consulting Doctor</th>
+					<th>Status</th>
+				</tr>
+
+				{% for a in appoints %}
+
+				<tr>
+					<td>{{a.date}}</td>
+					<td>{{a.time}}</td>
+					<td>{{a.doctor.name}}</td>
+					<td>{{a.status}}</td>
+					
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

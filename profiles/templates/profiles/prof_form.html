@@ -1,0 +1,30 @@
+{% extends 'profiles/navbar.html'%}
+{% block content %}
+<style>
+    .profile-pic{
+        max-width: 200px;
+        max-height:200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    </style>
+
+<div class="col-md-9">
+    <div class="card card-body">
+        <br>
+        
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+    
+        <input class="btn btn-primary" type="submit" name="Update Information" onclick="myFunction()">
+        <script>
+            function myFunction() {
+              alert("Update Successful!");
+            }
+        </script>
+        </form>
+        
+    </div>
+</div>
+{% endblock%}

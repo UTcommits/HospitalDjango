@@ -1,0 +1,40 @@
+{% extends 'profiles/navbar.html' %}
+
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+	</style>
+<div class="row">
+	<div class="col-md">
+        {% if us == 'doctor' %}
+        <a href="{%url 'new_pres' request.user.doctor.id%}" class="boxed-btn3-white-2">Create Prescription</a>
+        {% endif %}
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Date</th>
+					<th>Symptoms</th>
+					<th>Prescription</th>
+				</tr>
+
+				{% for p in prescriptions %}
+
+				<tr>
+					<td>{{p.date}}</td>
+					<td>{{p.symptoms}}</td>
+					<td>{{p.perscription}}</td>
+					
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

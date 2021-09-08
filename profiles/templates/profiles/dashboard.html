@@ -1,0 +1,76 @@
+{%  extends 'profiles/main.html' %}
+{%  extends 'profiles/navbar.html'% }
+{% block content %}
+
+{%  include 'profiles/status.html' %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Appointments:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'crea_appoint' %}">Create Appointments</a>
+			<table class="table table-sm">
+				<tr>
+					
+					<th>Date</th>
+					<th>Time</th><th>Doctors</th>
+					<th>Patients</th><th>Status</th>
+				
+				</tr>
+
+				{% for o in orders %}
+					<tr>
+						<td>{{o.date}}</td>
+						<td>{{o.time}}</td>
+						<td>{{o.doctor}}</td>
+						<td>{{o.patient}}</td>
+						<td>{{o.status}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5> Patients</h5>
+		<hr>
+		<div class="card card-body">
+	
+			<table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Phone </th>
+					<th>Email</th>
+					<th>Gender</th>
+					<th>Age</th>
+					<th>Update</th>
+					<th>
+						Delete
+					</th>
+				</tr>
+				{% for p in customers %}
+					<tr>
+						<td>{{p.name}}</td>
+						<td>{{p.phone}}</td>
+						<td>{{p.email}}</td>
+						<td>{{p.gender}}</td>
+						<td>{{p.Age}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'new_pat' p.id%}">Update</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'del_pat' p.id%}">Remove</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
